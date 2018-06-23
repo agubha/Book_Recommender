@@ -12,7 +12,7 @@ public class PorterStemmer2 {
      * @return the stem of the word, in lowercase.
      */
     public String stemWord(String word) {
-        Log.i(word,"porterstemmerword");
+//        Log.i(word,"porterstemmerword");
         String stem = word.toLowerCase(Locale.getDefault());
         if (stem.length() < 3) return stem;
         stem = stemStep1a(stem);
