@@ -3,10 +3,12 @@ package com.example.a.book_recommender;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Stopped_word3 {
-    public Boolean main(String text) {
+    public ArrayList<String> main(ArrayList<String> text) {
 
         String[] stop_words = {"a", "as", "able", "about", "above", "according", "accordingly", "across",
                 "actually", "allow", "allows", "almost", "alone", "along", "already", "also", "although",
@@ -28,61 +30,51 @@ public class Stopped_word3 {
                 "following", "follows", "for", "former", "formerly", "forth", "four", "from", "further",
                 "furthermore", "get", "gets", "getting", "given", "gives", "go", "goes", "going", "gone"
                 , "got", "gotten", "greetings", "had", "hadnt", "happens", "hardly", "has", "hasnt", "have",
-                "havent", "having", "he", "hes", "hello", "help", "hence", "her", "here", "heres", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "hi", "him", "himself", "his", "hither", "hopefully", "how", "howbeit", "however", "i", "id", "ill", "im", "ive", "ie", "if", "ignored", "immediate", "in", "inasmuch", "inc", "indeed", "indicate", "indicated", "indicates", "inner", "insofar", "instead", "into", "inward", "is", "isnt", "it", "itd", "itll", "its", "its", "itself", "just", "keep", "keeps", "kept", "know", "knows", "known", "last", "lately", "later", "latter", "latterly", "least", "less", "lest", "let", "lets", "like", "liked", "likely", "little", "look", "looking", "looks", "ltd", "mainly", "many", "may", "maybe", "me", "mean", "meanwhile", "merely", "might", "more", "moreover", "most", "mostly", "much", "must", "my", "myself", "name", "namely", "nd", "near", "nearly", "necessary", "need", "needs", "neither", "never", "nevertheless", "new", "next", "nine", "no", "nobody", "non", "none", "noone", "nor", "normally", "not", "nothing", "novel", "now", "nowhere", "obviously", "of", "off", "often", "oh", "ok", "okay", "old", "on", "once", "one", "ones", "only", "onto", "or", "other", "others", "otherwise", "ought", "our", "ours", "ourselves", "out", "outside", "over", "overall", "own", "particular", "particularly", "per", "perhaps", "placed", "please", "plus", "possible", "presumably", "probably", "provides", "que", "quite", "qv", "rather", "rd", "re", "really", "reasonably", "regarding", "regardless", "regards", "relatively", "respectively", "right", "said", "same", "saw", "say", "saying", "says", "second", "secondly", "see", "seeing", "seem", "seemed", "seeming", "seems", "seen", "self", "selves", "sensible", "sent", "serious", "seriously", "seven", "several", "shall", "she", "should", "shouldnt", "since", "six", "so", "some", "somebody", "somehow", "someone", "something", "sometime", "sometimes", "somewhat", "somewhere", "soon", "sorry", "specified", "specify", "specifying", "still", "sub", "such", "sup", "sure", "ts", "take", "taken", "tell", "tends", "th", "than", "thank", "thanks", "thanx", "that", "thats", "thats", "the", "their", "theirs", "them", "themselves", "then", "thence", "there", "theres", "thereafter", "thereby", "therefore", "therein", "theres", "thereupon", "these", "they", "theyd", "theyll", "theyre", "theyve", "think", "third", "this", "thorough", "thoroughly", "those", "though", "three", "through", "throughout", "thru", "thus", "to", "together", "too", "took", "toward", "towards", "tried", "tries", "truly", "try", "trying", "twice", "two", "un", "under", "unfortunately", "unless", "unlikely", "until", "unto", "up", "upon", "us", "use", "used", "useful", "uses", "using", "usually", "value", "various", "very", "via", "viz", "vs", "want", "wants", "was", "wasnt", "way", "we", "wed", "well", "were", "weve", "welcome", "well", "went", "were", "werent", "what", "whats", "whatever", "when", "whence", "whenever", "where", "wheres", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "whos", "whoever", "whole", "whom", "whose", "why", "will", "willing", "wish", "with", "within", "without", "wont", "wonder", "would", "would", "wouldnt", "yes", "yet", "you", "youd", "youll", "youre", "youve", "your", "yours", "yourself", "yourselves", "zero"};
+                "havent", "having", "he", "hes", "hello", "help", "hence", "her", "here", "heres", "hereafter",
+                "hereby", "herein", "hereupon", "hers", "herself", "hi", "him", "himself", "his", "hither", "hopefully",
+                "how", "howbeit", "however", "i", "id", "ill", "im", "ive", "ie", "if", "ignored", "immediate", "in",
+                "inasmuch", "inc", "indeed", "indicate", "indicated", "indicates", "inner", "insofar", "instead", "into",
+                "inward", "is", "isnt", "it", "itd", "itll", "its", "its", "itself", "just", "keep", "keeps", "kept",
+                "know", "knows", "known", "last", "lately", "later", "latter", "latterly", "least", "less", "lest", "let",
+                "lets", "like", "liked", "likely", "little", "look", "looking", "looks", "ltd", "mainly", "many", "may",
+                "maybe", "me", "mean", "meanwhile", "merely", "might", "more", "moreover", "most", "mostly", "much",
+                "must", "my", "myself", "name", "namely", "nd", "near", "nearly", "necessary", "need", "needs", "neither",
+                "never", "nevertheless", "new", "next", "nine", "no", "nobody", "non", "none", "noone", "nor", "normally",
+                "not", "nothing", "novel", "now", "nowhere", "obviously", "of", "off", "often", "oh", "ok", "okay", "old",
+                "on", "once", "one", "ones", "only", "onto", "or", "other", "others", "otherwise", "ought", "our", "ours",
+                "ourselves", "out", "outside", "over", "overall", "own", "particular", "particularly", "per", "perhaps",
+                "placed", "please", "plus", "possible", "presumably", "probably", "provides", "que", "quite", "qv",
+                "rather", "rd", "re", "really", "reasonably", "regarding", "regardless", "regards", "relatively",
+                "respectively", "right", "said", "same", "saw", "say", "saying", "says", "second", "secondly", "see",
+                "seeing", "seem", "seemed", "seeming", "seems", "seen", "self", "selves", "sensible", "sent", "serious",
+                "seriously", "seven", "several", "shall", "she", "should", "shouldnt", "since", "six", "so", "some",
+                "somebody", "somehow", "someone", "something", "sometime", "sometimes", "somewhat", "somewhere", "soon",
+                "sorry", "specified", "specify", "specifying", "still", "sub", "such", "sup", "sure", "ts", "take",
+                "taken", "tell", "tends", "th", "than", "thank", "thanks", "thanx", "that", "thats", "thats", "the",
+                "their", "theirs", "them", "themselves", "then", "thence", "there", "theres", "thereafter", "thereby",
+                "therefore", "therein", "theres", "thereupon", "these", "they", "theyd", "theyll", "theyre", "theyve",
+                "think", "third", "this", "thorough", "thoroughly", "those", "though", "three", "through", "throughout",
+                "thru", "thus", "to", "together", "too", "took", "toward", "towards", "tried", "tries", "truly", "try",
+                "trying", "twice", "two", "un", "under", "unfortunately", "unless", "unlikely", "until", "unto", "up",
+                "upon", "us", "use", "used", "useful", "uses", "using", "usually", "value", "various", "very", "via",
+                "viz", "vs", "want", "wants", "was", "wasnt", "way", "we", "wed", "well", "were", "weve", "welcome",
+                "well", "went", "were", "werent", "what", "whats", "whatever", "when", "whence", "whenever", "where",
+                "wheres", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which",
+                "while", "whither", "who", "whos", "whoever", "whole", "whom", "whose", "why", "will", "willing", "wish",
+                "with", "within", "without", "wont", "wonder", "would", "would", "wouldnt", "yes", "yet", "you", "youd",
+                "youll", "youre", "youve", "your", "yours", "yourself", "yourselves", "zero"};
 
-        String stop_word1 = text;
 
-
-        int x = stop_words.length;
-
-        for (int i = 0; i < x; i++) {
-            if (stop_word1 != null && stop_word1.equals(stop_words[i])) {
-
-                return false;
-
-            } else {
-                return true;
-
-
+        ArrayList<String> stopword;
+        stopword = text;
+        for (int i = 0; i < stopword.size(); i++) {
+            for (String stop_word : stop_words) {
+                if (stop_word.equals(stopword.get(i))) {
+                    stopword.remove(i);
+                }
             }
         }
-        return true;
+        return stopword;
 
     }
-
-
-//                }
-
-    //        ArrayList<String> wordsList = new ArrayList<>();
-////    String tweet = "Feeling miserable with the cold? Here's what you can do.";
-////    tweet =tweet.trim().
-//
-////    replaceAll("\\s+"," ");
-////        System.out.println("After trim:  "+tweet);
-//        String[] words = text;
-//
-//
-//        for (String word : words) {
-//            wordsList.add(word);
-//        }
-////        System.out.println("After for loop:  " + wordsList);
-//
-//        //remove stop words here from the temp list
-//        for (int i = 0; i < wordsList.size(); i++)
-//
-//        {
-//            // get the item as string
-//            for (int j = 0; j < stopwords.length; j++) {
-//                if (stopwords[j].contains(wordsList.get(i))) {
-//                    wordsList.remove(i);
-//                }
-//            }
-//        }
-//        for (
-//                String str : wordsList)
-//
-//        {
-//            System.out.print(str + " ");
-//        }
-//    }
 }

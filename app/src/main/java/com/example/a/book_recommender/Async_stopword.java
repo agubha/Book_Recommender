@@ -3,26 +3,35 @@ package com.example.a.book_recommender;
 import android.os.AsyncTask;
 import android.util.Log;
 
-class Async_stopword extends AsyncTask<String[], Void, String[]> {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Vector;
+
+class Async_stopword extends AsyncTask<String[], Void, ArrayList<String>> {
     @Override
-    protected String[] doInBackground(String[]... strings) {
-        String[] stopped_word = new String[200];
-        String[] temp_word = strings[0];
-
-        for (int i = 0; i < temp_word.length; i++) {
-            Stopped_word3 Stopped_word = new Stopped_word3();
-            Boolean stoppedword = Stopped_word.main(temp_word[i]);
-            if (!stoppedword) {
-                temp_word[i] = temp_word[i + 1];
-                i--;
-            }
-
-
+    protected ArrayList<String> doInBackground(String[]... strings) {
+        ArrayList<String> returnedstop;
+        String[] string1 = strings[0];
+        //for each
+        ArrayList<String> arraystring = new ArrayList<>(Arrays.asList(string1));
+        Stopped_word3 stoppedword3 = new Stopped_word3();
+        returnedstop = stoppedword3.main(arraystring);
+        int listSize = returnedstop.size();
+        for (int i = 0; i < listSize; i++) {
+            Log.i(returnedstop.get(i), "member list");
         }
-        Log.d(temp_word[0], "stoppedword0");
-        Log.d(temp_word[1], "stoppedword1");
-        Log.d(temp_word[2], "stoppedword2");
-        return (stopped_word);
+
+        return returnedstop;
+
+    }
+
+    @Override
+    protected void onPostExecute(ArrayList<String> arrayList) {
+
+        cosine_vector_similarity4 cosine = new cosine_vector_similarity4();
+        cosine.main(arrayList);
+
+
 
     }
 }
