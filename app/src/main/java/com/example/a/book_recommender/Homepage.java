@@ -12,6 +12,8 @@ import android.widget.ListView;
 
 import com.example.a.book_recommender.Adapter.Book_db;
 import com.example.a.book_recommender.Adapter.Book_db_list;
+import com.example.a.book_recommender.Adapter.Bookobject;
+import com.example.a.book_recommender.Adapter.booklistadapter;
 import com.github.clans.fab.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +33,7 @@ public class Homepage extends AppCompatActivity {
 
     DatabaseReference fd2databasereference = FirebaseDatabase.getInstance().getReference().child("Books_db");
     List<Book_db> book_dblist;
+    ArrayList<Bookobject> books;
 
 
     @Override
@@ -39,6 +42,7 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
         book_list_view = findViewById(R.id.list_view_books);
         book_dblist = new ArrayList<>();
+        books = new ArrayList<>();
 
         //floating action button
         fab_suggest_books = findViewById(R.id.fab_suggest_books);
@@ -67,13 +71,24 @@ public class Homepage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot bookSnapshot : dataSnapshot.getChildren()) {
                     Book_db book_db = bookSnapshot.getValue(Book_db.class);
+                    Bookobject bookobject = new Bookobject();
+                    bookobject.bookauthor = book_db.getBook_Author();
+                    bookobject.bookdate = book_db.getBook_date();
+                    bookobject.bookdetail = book_db.getBook_detail();
+                    bookobject.bookname = book_db.getBook_Name();
+
+                    Log.d("data", bookobject.bookauthor);
+
+                    books.add(bookobject);
+
                     if (book_db != null) {
                         Log.d("TAG"," name="+book_db.getBook_Name()+ " author="+book_db.getBook_Author()+" bookdate="+book_db.getBook_date()+" bookdetail="+book_db.getBook_detail());
                     }
+                    book_list_view.setAdapter(new booklistadapter(getApplicationContext(),books));
 
                 }
-                Book_db_list adapter = new Book_db_list(Homepage.this, book_dblist);
-                book_list_view.setAdapter(adapter);
+               /* Book_db_list adapter = new Book_db_list(Homepage.this, book_dblist);
+                book_list_view.setAdapter(adapter);*/
 
 
             }
