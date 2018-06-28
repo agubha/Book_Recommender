@@ -1,8 +1,10 @@
-package com.example.a.book_recommender;
+package com.example.a.book_recommender.PopUp;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+
+import com.example.a.book_recommender.R;
 
 public class Sign_up_pop_up extends Activity {
     @Override

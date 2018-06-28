@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Mainpage extends AppCompatActivity {
+import com.example.a.book_recommender.PopUp.Sign_in_pop_up;
+import com.example.a.book_recommender.PopUp.Sign_up_pop_up;
+
+public class MainPage extends AppCompatActivity {
     Button signup, signin;
 
     @Override
@@ -17,14 +20,14 @@ public class Mainpage extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Mainpage.this, Sign_up_pop_up.class));
+                startActivity(new Intent(MainPage.this, Sign_up_pop_up.class));
             }
         });
         signin = findViewById(R.id.sign_in_btn);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Mainpage.this, Sign_in_pop_up.class));
+                startActivity(new Intent(MainPage.this, Sign_in_pop_up.class));
             }
         });
     }

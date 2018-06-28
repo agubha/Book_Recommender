@@ -21,8 +21,6 @@ public class Book_db_list extends ArrayAdapter<Book_db> {
         super(context, R.layout.book_list_view_layout);
         this.context = context;
         this.book_db_List = book_dbList;
-
-
     }
 
     @NonNull

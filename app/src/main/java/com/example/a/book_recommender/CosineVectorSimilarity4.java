@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class cosine_vector_similarity4 {
+public class CosineVectorSimilarity4 {
     public static double consineTextSimilarity(String[] left, String[] right) {
         Map<String, Integer> leftWordCountMap = new HashMap<>();
         Map<String, Integer> rightWordCountMap = new HashMap<>();

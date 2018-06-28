@@ -15,7 +15,7 @@
 ////        ArrayList<String> returnedstop;
 ////        String[] string1 = strings[0];
 ////        //for each       ArrayList<String> arraystring = new ArrayList<>(Arrays.asList(string1));
-////        Stopped_word3 stoppedword3 = new Stopped_word3();
+////        StoppedWord3 stoppedword3 = new StoppedWord3();
 ////        returnedstop = stoppedword3.main(arraystring);
 ////        int listSize = returnedstop.size();
 ////        for (int i = 0; i < listSize; i++) {

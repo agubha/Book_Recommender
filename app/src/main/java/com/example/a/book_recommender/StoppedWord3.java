@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Stopped_word3 {
+public class StoppedWord3 {
     public ArrayList<String> main(ArrayList<String> text) {
 
         String[] stop_words = {"a", "as", "able", "about", "above", "according", "accordingly", "across",

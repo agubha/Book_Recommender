@@ -15,10 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Date;
-import java.util.HashMap;
-
-public class Add_details_to_db extends AppCompatActivity {
+public class AddDetailsToDb extends AppCompatActivity {
 
     Button accept_changes_btn, cancel_changes_btn;
     EditText Book_name, Book_isbn, Book_author, Book_p_date, Book_detail;
@@ -68,9 +65,9 @@ public class Add_details_to_db extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(Add_details_to_db.this, "Push Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddDetailsToDb.this, "Push Successful", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(Add_details_to_db.this, "Push Unsuccessful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddDetailsToDb.this, "Push Unsuccessful", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -85,9 +82,9 @@ public class Add_details_to_db extends AppCompatActivity {
 //                @Override
 //                public void onComplete(@NonNull Task<Void> task) {
 //                    if (task.isSuccessful()) {
-//                        Toast.makeText(Add_details_to_db.this, "Push Successful", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AddDetailsToDb.this, "Push Successful", Toast.LENGTH_SHORT).show();
 //                    } else {
-//                        Toast.makeText(Add_details_to_db.this, "Push Unsuccessful", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AddDetailsToDb.this, "Push Unsuccessful", Toast.LENGTH_SHORT).show();
 //                    }
 //                }
 //            });

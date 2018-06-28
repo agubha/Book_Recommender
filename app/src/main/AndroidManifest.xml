@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Mainpage">
+        <activity android:name=".MainPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,14 +19,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Sign_up_pop_up"
+            android:name=".PopUp.Sign_up_pop_up"
             android:theme="@style/pop_up_theme" />
         <activity
-            android:name=".Sign_in_pop_up"
+            android:name=".PopUp.Sign_in_pop_up"
             android:theme="@style/pop_up_theme" />
-        <activity android:name=".Homepage" />
-        <activity android:name=".Add_Books" />
-        <activity android:name=".Add_details_to_db"/>
+        <activity android:name=".HomePage" />
+        <activity android:name=".AddBooks" />
+        <activity android:name=".AddDetailsToDb"/>
     </application>
 
 </manifest>

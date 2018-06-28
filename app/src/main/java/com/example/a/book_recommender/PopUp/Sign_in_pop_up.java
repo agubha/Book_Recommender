@@ -1,4 +1,4 @@
-package com.example.a.book_recommender;
+package com.example.a.book_recommender.PopUp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.a.book_recommender.HomePage;
+import com.example.a.book_recommender.R;
 
 public class Sign_in_pop_up extends Activity {
     Button sign_in;
@@ -23,7 +26,7 @@ public class Sign_in_pop_up extends Activity {
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Sign_in_pop_up.this, Homepage.class));
+                startActivity(new Intent(Sign_in_pop_up.this, HomePage.class));
             }
         });
     }
