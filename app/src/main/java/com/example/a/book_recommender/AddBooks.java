@@ -2,13 +2,14 @@ package com.example.a.book_recommender;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.a.book_recommender.Adapter.Book_db;
 import com.example.a.book_recommender.Adapter.Bookdetailobject;
@@ -23,10 +24,12 @@ import java.util.Arrays;
 
 public class AddBooks extends AppCompatActivity {
     EditText find_book_user_et;
-    Button find_book_user_btn;
+    Button find_book_user_btn, find_token_btn;
+    TextView text_to_display;
     String find_book_user_string;
-    ArrayList<String> final_output = new ArrayList<>();
+    ArrayList<String> final_output;
     ArrayList<Bookdetailobject> bookdetailobjects;
+    Async_Task stem = new Async_Task();
 
 
     @Override
@@ -36,14 +39,27 @@ public class AddBooks extends AppCompatActivity {
         bookdetailobjects = new ArrayList<>();
         find_book_user_btn = findViewById(R.id.find_book_user_btn);
         find_book_user_et = findViewById(R.id.find_book_user_et);
-        find_book_user_btn.setOnClickListener(new View.OnClickListener() {
+        find_token_btn = findViewById(R.id.find_token_btn);
+        text_to_display = findViewById(R.id.tvDisplay);
+        find_token_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 find_book_user_string = find_book_user_et.getText().toString();
-                Step1split(find_book_user_string);
-                /*open step 1 to split words into token*/
+                String[] splitted_string = Step1split(find_book_user_string);
+
+                stem.execute(splitted_string);
             }
         });
+       /* find_book_user_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                find_book_user_string = find_book_user_et.getText().toString();
+                String[] splitted_string = Step1split(find_book_user_string);
+                Async_Task stem = new Async_Task();
+                stem.execute(splitted_string);
+                *//*open step 1 to split words into token*//*
+            }
+        });*/
     }
 
     public void Firebase_return_value() {
@@ -57,7 +73,7 @@ public class AddBooks extends AppCompatActivity {
                     Bookdetailobject bookdetailobject = new Bookdetailobject();
                     bookdetailobject.bookdetail = book_db.getBook_detail();
                     bookdetailobject.bookname = book_db.getBook_Name();
-                     bookdetailobjects.add(bookdetailobject);
+                    bookdetailobjects.add(bookdetailobject);
                     //array.add(object)
                     //book_list_view.setAdapter(new booklistadapter(getApplicationContext(), books));
                 }
@@ -70,17 +86,7 @@ public class AddBooks extends AppCompatActivity {
         /*reading and adding completelevel 3 reading and displaying*/
     }
 
-    public String[] Step1split(String step_1_split) {
-        String[] step2string = splitting(step_1_split);
-        Async_Task stem = new Async_Task();
-        stem.execute(step2string);
-        return null;
-    }
 
-    public String[] splitting(String text_to_split) {
-
-        return text_to_split.split("\\s+");
-    }
     @SuppressLint("StaticFieldLeak")
     public class Async_Task extends AsyncTask<String[], Void, ArrayList<String>> {
 
@@ -88,37 +94,37 @@ public class AddBooks extends AppCompatActivity {
         @Override
         protected ArrayList<String> doInBackground(String[]... strings) {
 
-            String[] stemmed_list_after_stemming = new String[200];
-            String[] word2stem = strings[0];
+            String[] wordtostop = new String[500];
+            String[] wordtostem = strings[0];
+            ArrayList<String> valuetoreturn;
 
-            Log.i(Arrays.toString(strings), "async_stem");
-
-            //Stemming
-            for (int i = 0; i < word2stem.length; i++) {
+            /*step 1 stemming*/
+            for (int i = 0; i < wordtostem.length; i++) {
                 PorterStemmer2 porterStemmer2 = new PorterStemmer2();
-                String temp_stemmed = porterStemmer2.stemWord(word2stem[i]);
-                stemmed_list_after_stemming[i] = temp_stemmed;
+                wordtostop[i] = porterStemmer2.stemWord(wordtostem[i]);
             }
-
-            //step 2 async stopword
-            ArrayList<String> list_after_stopword;
+            /*Step 2 async stopword*/
             //for each
-            ArrayList<String> stemmed_list_before_stopword = new ArrayList<>(Arrays.asList(stemmed_list_after_stemming));
+            ArrayList<String> stemmed_list_before_stopword = new ArrayList<>(Arrays.asList(wordtostop));
             StoppedWord3 stoppedword3 = new StoppedWord3();
-            list_after_stopword = stoppedword3.main(stemmed_list_before_stopword);
-            //returns array list
-//            String[] converted_array = new String[list_after_stopword.size()];
-//            converted_array = list_after_stopword.toArray(converted_array);
-            //converted into array
-            return list_after_stopword;
+            valuetoreturn = stoppedword3.main(stemmed_list_before_stopword);
+            return valuetoreturn;
         }
 
         @Override
         protected void onPostExecute(ArrayList<String> strings) {
+            final_output = new ArrayList<>();
             final_output = strings;
-            Log.i(final_output.get(0), "returned token");
+            Log.i(final_output.get(2), "returned token");
+            text_to_display.setText(final_output.get(3));
+
         }
+
     }
+
+
+
+
 
     @Override
     protected void onStart() {
@@ -128,4 +134,9 @@ public class AddBooks extends AppCompatActivity {
             Step1split(bookdetailobject.bookdetail);
         }
     }
+
+    public String[] Step1split(String step_1_split) {
+        return step_1_split.split("\\s+");
+    }
+
 }

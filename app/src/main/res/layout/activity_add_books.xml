@@ -7,17 +7,40 @@
     <EditText
         android:id="@+id/find_book_user_et"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="189dp"
         android:hint="FIND BOOKS" />
 
-    <Button
-        android:id="@+id/find_book_user_btn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="find!" />
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/find_token_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FInd Token" />
+
+        <Button
+            android:id="@+id/find_book_user_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="find!" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="295dp"
+        android:minHeight="60dp">
+
+    </ListView>
 
     <TextView
-        android:id="@+id/texttodisplay"
+        android:id="@+id/tvDisplay"
         android:layout_width="match_parent"
-        android:layout_height="139dp" />
+        android:layout_height="37dp"
+        android:hint="Output" />
 </LinearLayout>
