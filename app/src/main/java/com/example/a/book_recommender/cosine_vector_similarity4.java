@@ -114,4 +114,3 @@ public class cosine_vector_similarity4 {
 
     }
 }
-

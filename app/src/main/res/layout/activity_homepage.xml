@@ -31,24 +31,24 @@
         fab:menu_openDirection="up">
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_add_books"
+            android:id="@+id/fab_suggest_books"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_add_black_24dp"
-            fab:fab_label="Add Books"
+            fab:fab_label="Suggest Books"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_edit_books"
+            android:id="@+id/fab_edit_books_db"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="84dp"
             android:src="@drawable/ic_edit_black_24dp"
-            fab:fab_label="Edit Books"
+            fab:fab_label="Add Books to DB"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
