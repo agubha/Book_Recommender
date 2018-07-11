@@ -10,6 +10,8 @@
         android:layout_height="189dp"
         android:hint="FIND BOOKS" />
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,16 +33,14 @@
             android:text="find!" />
     </LinearLayout>
 
+
+
     <ListView
+        android:id="@+id/list_token"
         android:layout_width="match_parent"
-        android:layout_height="295dp"
+        android:layout_height="297dp"
         android:minHeight="60dp">
 
     </ListView>
 
-    <TextView
-        android:id="@+id/tvDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="37dp"
-        android:hint="Output" />
 </LinearLayout>

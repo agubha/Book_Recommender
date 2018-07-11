@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -45,14 +44,14 @@ public class HomePage extends AppCompatActivity {
         fab_suggest_books.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, AddBooks.class));
+                startActivity(new Intent(HomePage.this, SearchBooks.class));
             }
         });
         fab_edit_db_books = findViewById(R.id.fab_edit_books_db);
         fab_edit_db_books.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, AddDetailsToDb.class));
+                startActivity(new Intent(HomePage.this, AdminAdd.class));
             }
         });
 
@@ -74,7 +73,7 @@ public class HomePage extends AppCompatActivity {
                     bookobject.bookdetail = book_db.getBook_detail();
                     bookobject.bookname = book_db.getBook_Name();
 
-                    Log.d("data", bookobject.bookauthor);
+//                    Log.d("data", bookobject.bookauthor);
 
                     books.add(bookobject);
 

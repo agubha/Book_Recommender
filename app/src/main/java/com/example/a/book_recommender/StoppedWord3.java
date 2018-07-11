@@ -4,13 +4,11 @@ package com.example.a.book_recommender;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class StoppedWord3 {
     public ArrayList<String> main(ArrayList<String> text) {
 
-        String[] stop_words = {"a", "as", "able", "about", "above", "according", "accordingly", "across",
+        String[] stop_words = {"a", "as", "are", "able", "about", "above", "according", "accordingly", "across",
                 "actually", "allow", "allows", "almost", "alone", "along", "already", "also", "although",
                 "always", "am", "among", "amongst", "an", "and", "another", "any", "anybody", "anyhow",
                 "anyone", "anything", "anyway", "anyways", "anywhere", "apart", "appear", "appreciate",
@@ -72,9 +70,12 @@ public class StoppedWord3 {
                 if (stop_word.equals(stopword.get(i))) {
                     stopword.remove(i);
                 }
+
             }
+//            Log.d("Returned Stopped Word", stopword.get(i));
         }
         return stopword;
+
 
     }
 }

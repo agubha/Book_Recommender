@@ -1,5 +1,6 @@
 package com.example.a.book_recommender.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -27,7 +28,7 @@ public class Book_db_list extends ArrayAdapter<Book_db> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View listviewitem = inflater.inflate(R.layout.book_list_view_layout, null, true);
+        @SuppressLint("ViewHolder") View listviewitem = inflater.inflate(R.layout.book_list_view_layout, null, true);
 
         TextView book_name_tv = listviewitem.findViewById(R.id.book_name_tv);
         TextView book_author_tv = listviewitem.findViewById(R.id.book_author_tv);

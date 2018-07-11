@@ -37,7 +37,7 @@ public class booklistadapter extends ArrayAdapter<Bookobject> {
         String booknamess = books.bookname;
 
         bookauthor.setText(books.bookauthor);
-        Log.d("inadapter",booknamess);
+        Log.d("inadapter",booknamess+"");
         bookdate.setText(books.bookdetail);
         bookdetail.setText(books.bookdetail);
         bookname.setText(books.bookname);

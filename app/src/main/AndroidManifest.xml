@@ -25,8 +25,9 @@
             android:name=".PopUp.Sign_in_pop_up"
             android:theme="@style/pop_up_theme" />
         <activity android:name=".HomePage" />
-        <activity android:name=".AddBooks" />
-        <activity android:name=".AddDetailsToDb"/>
+        <activity android:name=".SearchBooks" />
+        <activity android:name=".AdminAdd" />
+        <activity android:name=".DisplaySimilarBooks"></activity>
     </application>
 
 </manifest>

@@ -1,26 +1,30 @@
 package com.example.a.book_recommender.Adapter;
 
-public class Book_db {
-    private String Book_detail;
+import java.util.List;
+
+public class Book_db_2 {
+    private List<String> Book_detail;
     private String Book_date;
     private String Book_Author;
     private String Book_Name;
     private String Book_isbn;
+    private Integer Cosine;
 
-    public Book_db() {
+    public Book_db_2() {
         //required
     }
 
 
-    public Book_db(String book_Name, String book_Author, String book_detail, String book_date, String book_isbn) {
-        this.Book_Name= book_Name;
-        this.Book_Author= book_Author;
-        this.Book_date= book_date;
-        this.Book_detail= book_detail;
-        this.Book_isbn= book_isbn;
+    public Book_db_2(String book_Name, String book_Author, List<String> book_detail, String book_date, String book_isbn, Integer cosine) {
+        this.Book_Name = book_Name;
+        this.Book_Author = book_Author;
+        this.Book_date = book_date;
+        this.Book_detail = book_detail;
+        this.Book_isbn = book_isbn;
+        this.Cosine = cosine;
     }
 
-    public void setBook_detail(String book_detail) {
+    public void setBook_detail(List<String> book_detail) {
         Book_detail = book_detail;
     }
 
@@ -40,7 +44,11 @@ public class Book_db {
         Book_isbn = book_isbn;
     }
 
-    public String getBook_detail() {
+    public void setCosine(Integer cosine) {
+        Cosine = cosine;
+    }
+
+    public List<String> getBook_detail() {
         return Book_detail;
     }
 
@@ -58,5 +66,10 @@ public class Book_db {
 
     public String getBook_isbn() {
         return Book_isbn;
-    }}
+    }
+
+    public Integer getCosine() {
+        return Cosine;
+    }
+}
 
