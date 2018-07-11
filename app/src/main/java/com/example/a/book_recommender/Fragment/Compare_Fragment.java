@@ -34,7 +34,7 @@ public class Compare_Fragment extends DialogFragment {
 
 
         //bind
-        name.setText();
+//        name.setText();
         return rootView;
     }
 }
