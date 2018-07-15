@@ -42,7 +42,7 @@ public class booklistcompareadapter extends ArrayAdapter<Book2object> {
         bookname.setText(book2object.bookname);
         String cosinevalue = String.valueOf(book2object.cosine);
         cosine.setText(cosinevalue);
-        @SuppressLint({"NewApi", "LocalSuppress"}) String concatdetail = String.join(",", book2object.bookdetaill);
+        @SuppressLint({"NewApi", "LocalSuppress"}) String concatdetail = String.join(",", book2object.booktoken);
 
         bookdetail.setText(concatdetail);
 

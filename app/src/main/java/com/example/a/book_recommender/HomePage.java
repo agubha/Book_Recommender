@@ -1,14 +1,14 @@
 package com.example.a.book_recommender;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
 import com.example.a.book_recommender.Adapter.Book_db;
-import com.example.a.book_recommender.Adapter.Bookobject;
+import com.example.a.book_recommender.Adapter.Book1object;
 import com.example.a.book_recommender.Adapter.booklistadapter;
 import com.github.clans.fab.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +28,7 @@ public class HomePage extends AppCompatActivity {
 
     DatabaseReference fd2databasereference = FirebaseDatabase.getInstance().getReference().child("Books_db");
     List<Book_db> book_dblist;
-    ArrayList<Bookobject> books;
+    ArrayList<Book1object> books;
 
 
     @Override
@@ -67,20 +67,21 @@ public class HomePage extends AppCompatActivity {
                 books.clear();
                 for (DataSnapshot bookSnapshot : dataSnapshot.getChildren()) {
                     Book_db book_db = bookSnapshot.getValue(Book_db.class);
-                    Bookobject bookobject = new Bookobject();
-                    bookobject.bookauthor = book_db.getBook_Author();
-                    bookobject.bookdate = book_db.getBook_date();
-                    bookobject.bookdetail = book_db.getBook_detail();
-                    bookobject.bookname = book_db.getBook_Name();
+                    Book1object book1object = new Book1object();
+                    assert book_db != null;
+                    book1object.bookauthor = book_db.getBook_Author();
+                    book1object.bookdate = book_db.getBook_date();
+                    book1object.bookdetail = book_db.getBook_detail();
+                    book1object.bookname = book_db.getBook_Name();
+                    book1object.bookisbn = book_db.getBook_isbn();
+//                    Log.d("data", book1object.bookauthor);
 
-//                    Log.d("data", bookobject.bookauthor);
-
-                    books.add(bookobject);
+                    books.add(book1object);
 
 //                    if (book_db != null) {
-//                        Log.d("TAG"," name="+book_db.getBook_Name()+ " author="+book_db.getBook_Author()+" bookdate="+book_db.getBook_date()+" bookdetail="+book_db.getBook_detail());
+//                        Log.d("TAG"," name="+book_db.getBook_Name()+ " author="+book_db.getBook_Author()+" bookdate="+book_db.getBook_date()+" bookdetail="+book_db.getBook_token());
 //                    }
-                    book_list_view.setAdapter(new booklistadapter(getApplicationContext(),books));
+                    book_list_view.setAdapter(new booklistadapter(getApplicationContext(), books));
 
                 }
                /* Book_db_list adapter = new Book_db_list(HomePage.this, book_dblist);

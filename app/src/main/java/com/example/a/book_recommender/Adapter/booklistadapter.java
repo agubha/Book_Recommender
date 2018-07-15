@@ -8,15 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a.book_recommender.R;
 
 import java.util.ArrayList;
 
-public class booklistadapter extends ArrayAdapter<Bookobject> {
-    public booklistadapter(@NonNull Context context, ArrayList<Bookobject> list) {
+public class booklistadapter extends ArrayAdapter<Book1object> {
+    public booklistadapter(@NonNull Context context, ArrayList<Book1object> list) {
         super(context, 0,list);
     }
     @NonNull
@@ -33,7 +32,7 @@ public class booklistadapter extends ArrayAdapter<Bookobject> {
         bookname = view.findViewById(R.id.book_name_tv);
         bookdetail = view.findViewById(R.id.book_detail_tv);
 
-        Bookobject books =getItem(position);
+        Book1object books =getItem(position);
         String booknamess = books.bookname;
 
         bookauthor.setText(books.bookauthor);

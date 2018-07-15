@@ -3,29 +3,31 @@ package com.example.a.book_recommender.Adapter;
 import java.util.List;
 
 public class Book_db_2 {
-    private List<String> Book_detail;
+    private List<String> Book_token;
     private String Book_date;
     private String Book_Author;
     private String Book_Name;
     private String Book_isbn;
     private Integer Cosine;
+    private String Book_detail;
 
     public Book_db_2() {
         //required
     }
 
 
-    public Book_db_2(String book_Name, String book_Author, List<String> book_detail, String book_date, String book_isbn, Integer cosine) {
+    public Book_db_2(String book_Name, String book_Author, List<String> book_token, String book_date, String book_isbn, Integer cosine, String book_detail) {
         this.Book_Name = book_Name;
         this.Book_Author = book_Author;
         this.Book_date = book_date;
-        this.Book_detail = book_detail;
+        this.Book_token = book_token;
         this.Book_isbn = book_isbn;
         this.Cosine = cosine;
+        this.Book_detail = book_detail;
     }
 
-    public void setBook_detail(List<String> book_detail) {
-        Book_detail = book_detail;
+    public void setBook_token(List<String> book_token) {
+        Book_token = book_token;
     }
 
     public void setBook_date(String book_date) {
@@ -48,8 +50,17 @@ public class Book_db_2 {
         Cosine = cosine;
     }
 
-    public List<String> getBook_detail() {
+    public void setBook_detail(String book_detail) {
+        Book_detail = book_detail;
+    }
+
+    public String getBook_detail() {
+
         return Book_detail;
+    }
+
+    public List<String> getBook_token() {
+        return Book_token;
     }
 
     public String getBook_date() {

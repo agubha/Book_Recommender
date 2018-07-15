@@ -113,7 +113,7 @@ public class AdminAdd extends AppCompatActivity implements Runnable {
             //creating child in root
             f2database = FirebaseDatabase.getInstance().getReference("Books_db_2");
 
-            Book_db_2 book_db_2 = new Book_db_2(Book_name_str, Book_author_str, final_output, Book_date_str, Book_isbn_str,0);
+            Book_db_2 book_db_2 = new Book_db_2(Book_name_str, Book_author_str, final_output, Book_date_str, Book_isbn_str,0,Book_detail_str);
             f2database.child(Book_isbn_str).setValue(book_db_2).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {

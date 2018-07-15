@@ -13,8 +13,8 @@ import com.example.a.book_recommender.R;
 
 import java.util.ArrayList;
 
-public class book_dblistadapter extends ArrayAdapter<Bookobject> {
-    public book_dblistadapter(@NonNull Context context, ArrayList<Bookobject> list) {
+public class book_dblistadapter extends ArrayAdapter<Book1object> {
+    public book_dblistadapter(@NonNull Context context, ArrayList<Book1object> list) {
         super(context, 0, list);
     }
 
@@ -28,10 +28,11 @@ public class book_dblistadapter extends ArrayAdapter<Bookobject> {
         bookdate = view.findViewById(R.id.book_date_tv);
         bookname = view.findViewById(R.id.book_name_tv);
         bookdetail = view.findViewById(R.id.book_detail_tv);
-        Bookobject books = getItem(position);
-        String booknamess = books.bookname;
+        Book1object books = getItem(position);
 
+        assert books != null;
         bookauthor.setText(books.bookauthor);
+//        String booknamess = books.bookname;
 //        Log.d("inadapter",booknamess);
         bookdate.setText(books.bookdetail);
         bookdetail.setText(books.bookdetail);
